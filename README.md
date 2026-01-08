@@ -1,6 +1,6 @@
-# Optics Reflection Data Generator 🔬
+# Mirror Reflection Data Generator 🪞
 
-A data generator for creating synthetic "Optics Reflection" generation tasks. This generator creates datasets where light rays need to be predicted when they hit a mirror surface, following the law of reflection where the angle of incidence equals the angle of reflection.
+A physics simulation data generator for **light reflection tasks**. This generator creates optics problems where models must predict how light reflects from mirror surfaces, using the law of reflection (θᵢ = θᵣ) with provided reflectivity values and incident angles.
 
 ---
 
@@ -27,9 +27,8 @@ A data generator for creating synthetic "Optics Reflection" generation tasks. Th
 ### 1. Clone and Setup Environment
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd template-data-generator-3
+# Navigate to the generator directory
+cd O-19_mirror_reflection_data_generator
 
 # Create virtual environment
 python3 -m venv venv
@@ -63,7 +62,7 @@ Generated data will be saved in `data/questions/{domain}_task/` directory, with 
 ## 📁 Project Structure
 
 ```
-template-data-generator-3/
+O-19_mirror_reflection_data_generator/
 ├── core/                          # ✅ Core framework code (DO NOT MODIFY)
 │   ├── __init__.py               # Export core classes and functions
 │   ├── base_generator.py         # Abstract base generator class
@@ -72,24 +71,22 @@ template-data-generator-3/
 │   ├── video_utils.py            # Video generation utilities
 │   └── output_writer.py          # File output utilities
 │
-├── src/                           # ⚠️ Your task code (NEEDS CUSTOMIZATION)
-│   ├── __init__.py               # Export task-related classes
-│   ├── config.py                 # Task configuration (TaskConfig)
-│   ├── generator.py             # Task generator (TaskGenerator)
-│   └── prompts.py               # Prompt and rubric templates
+├── src/                     # 🪞 Mirror reflection implementation
+│   ├── generator.py        # Law of reflection physics & ray tracing
+│   ├── prompts.py          # Reflection-specific prompt templates
+│   └── config.py           # Mirror properties & reflectivity ranges
 │
 ├── examples/
 │   └── generate.py               # Data generation entry script
 │
 ├── data/
 │   └── questions/                # Generated data output directory
-│       └── {domain}_task/
-│           └── {task_id}/
-│               ├── first_frame.png
-│               ├── final_frame.png
-│               ├── prompt.txt
-│               ├── rubric.txt
-│               └── ground_truth.mp4 (optional)
+    └── mirror_reflection_task/
+        └── mirror_reflection_XXXX/
+            ├── first_frame.png     # Incident ray with angle annotation
+            ├── final_frame.png     # Both incident & reflected rays
+            ├── prompt.txt          # Physics problem with reflectivity
+            └── ground_truth.mp4    # Ray reflection animation
 │
 ├── requirements.txt               # Python dependencies
 ├── setup.py                       # Package installation configuration
